@@ -1,27 +1,44 @@
 package com.example.guia3
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import android.content.Intent
-import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
+
     private lateinit var btnAbrir: Button
+    private lateinit var btnIncrementar: Button
+    private lateinit var tvContador: TextView
+
+    private var contador = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //1. Referencia al archivo layout
         setContentView(R.layout.activity_main)
-        //2. Referencia al boton
+
+        // Referencias a los controles
         btnAbrir = findViewById(R.id.btnAbrir)
-        // 3. Registro del observador
+        btnIncrementar = findViewById(R.id.btnIncrementar)
+        tvContador = findViewById(R.id.tvContador)
+
+        // Registrar el observador
         lifecycle.addObserver(MyLifeCycleObserver("MainActivity"))
-        //4.Listener del boton
-        btnAbrir.setOnClickListener{
-            //5. Uso de un intent explicito para iniciar una nueva Activity
+
+        // Botón para abrir la segunda Activity
+        btnAbrir.setOnClickListener {
             val intent = Intent(this, MainActivity2::class.java)
             startActivity(intent)
         }
+
+        // Botón para incrementar el contador
+        btnIncrementar.setOnClickListener {
+            contador++
+            tvContador.text = "Valor contador: $contador"
+        }
+
         mostrarToast("onCreate")
     }
 
@@ -54,10 +71,11 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         mostrarToast("onDestroy")
     }
+
     private fun mostrarToast(
         mensaje: String,
         duracion: Int = Toast.LENGTH_SHORT
-    ){
+    ) {
         Toast.makeText(
             this,
             "MainActivity -> $mensaje",

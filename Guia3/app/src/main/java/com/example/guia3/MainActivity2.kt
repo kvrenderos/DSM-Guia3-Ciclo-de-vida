@@ -2,7 +2,6 @@ package com.example.guia3
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +11,7 @@ class MainActivity2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main2) // o el nombre de tu XML
         //1. Referencia al boton
         btnRegresar = findViewById(R.id.btnRegresar)
         //3. Registro del observador
@@ -54,12 +54,12 @@ class MainActivity2 : AppCompatActivity() {
     }
 
     private fun mostrarToast(
-        mesaje: String,
+        mensaje: String,
         duracion :Int = Toast.LENGTH_SHORT
     ){
         Toast.makeText(
             this,
-            "MainActivity -> $mensaje",
+            "MainActivity2-> $mensaje",
             duracion
         ).show()
     }
