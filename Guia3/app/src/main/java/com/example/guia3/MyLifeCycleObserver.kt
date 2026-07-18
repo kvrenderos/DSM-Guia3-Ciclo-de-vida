@@ -5,10 +5,11 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import  androidx.lifecycle.LifecycleOwner
 
 
-class MyLifeCycleObserver : DefaultLifecycleObserver {
+class MyLifeCycleObserver(val activity:String) : DefaultLifecycleObserver {
+    /* Callbacks */
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
-        Log.d("MyLifeCycleObserver", "onCreate")
+        Log.d("MyLifeCycleObserver", "$activity -> onCreate")
     }
 
     override fun onStart(owner: LifecycleOwner) {

@@ -1,30 +1,30 @@
 package com.example.guia3
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import android.content.Intent
-import android.widget.Button
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var btnAbrir: Button
+class MainActivity2 : AppCompatActivity() {
+    lateinit var btnRegresar: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //1. Referencia al archivo layout
-        setContentView(R.layout.activity_main)
-        //2. Referencia al boton
-        btnAbrir = findViewById(R.id.btnAbrir)
-        // 3. Registro del observador
-        lifecycle.addObserver(MyLifeCycleObserver("MainActivity"))
-        //4.Listener del boton
-        btnAbrir.setOnClickListener{
+        //1. Referencia al boton
+        btnRegresar = findViewById(R.id.btnRegresar)
+        //3. Registro del observador
+        lifecycle.addObserver(MyLifeCycleObserver("MainActivity2"))
+
+        //4. Listener del boton
+        btnRegresar.setOnClickListener {
             //5. Uso de un intent explicito para iniciar una nueva Activity
-            val intent = Intent(this, MainActivity2::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
         mostrarToast("onCreate")
     }
-
     override fun onStart() {
         super.onStart()
         mostrarToast("onStart")
@@ -49,14 +49,13 @@ class MainActivity : AppCompatActivity() {
         super.onRestart()
         mostrarToast("onRestart")
     }
-
     override fun onDestroy() {
         super.onDestroy()
-        mostrarToast("onDestroy")
     }
+
     private fun mostrarToast(
-        mensaje: String,
-        duracion: Int = Toast.LENGTH_SHORT
+        mesaje: String,
+        duracion :Int = Toast.LENGTH_SHORT
     ){
         Toast.makeText(
             this,
@@ -64,4 +63,5 @@ class MainActivity : AppCompatActivity() {
             duracion
         ).show()
     }
+
 }
