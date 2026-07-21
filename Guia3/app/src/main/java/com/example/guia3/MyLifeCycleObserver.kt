@@ -2,11 +2,10 @@ package com.example.guia3
 
 import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
-import  androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LifecycleOwner
 
+class MyLifeCycleObserver(private val activity: String) : DefaultLifecycleObserver {
 
-class MyLifeCycleObserver(val activity:String) : DefaultLifecycleObserver {
-    /* Callbacks */
     override fun onCreate(owner: LifecycleOwner) {
         super.onCreate(owner)
         Log.d("MyLifeCycleObserver", "$activity -> onCreate")
@@ -14,21 +13,26 @@ class MyLifeCycleObserver(val activity:String) : DefaultLifecycleObserver {
 
     override fun onStart(owner: LifecycleOwner) {
         super.onStart(owner)
-        Log.d("MyLifeCycleObserver", "onStart")
+        Log.d("MyLifeCycleObserver", "$activity -> onStart")
+    }
+
+    override fun onResume(owner: LifecycleOwner) {
+        super.onResume(owner)
+        Log.d("MyLifeCycleObserver", "$activity -> onResume")
     }
 
     override fun onPause(owner: LifecycleOwner) {
         super.onPause(owner)
-        Log.d("MyLifeCycleObserver","onResesume")
+        Log.d("MyLifeCycleObserver", "$activity -> onPause")
     }
 
     override fun onStop(owner: LifecycleOwner) {
         super.onStop(owner)
-        Log.d("MyLifeCycleObserver", "onStop")
+        Log.d("MyLifeCycleObserver", "$activity -> onStop")
     }
 
     override fun onDestroy(owner: LifecycleOwner) {
         super.onDestroy(owner)
-        Log.d("MyLifeCycleObserver", "onDestroy")
+        Log.d("MyLifeCycleObserver", "$activity -> onDestroy")
     }
 }

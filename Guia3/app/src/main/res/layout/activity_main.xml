@@ -1,55 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
- xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="#216EBC"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="20dp"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:text="Ciclo de Vida Android" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginVertical="20dp"
-    android:textSize="20sp"
-    android:textStyle="bold"
-    android:textColor="#FFFFFF"
-    android:text="Activity principal" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:text="Activity principal"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-    <!-- Boton para abrir nueva actividad -->
-    <Button
-        android:id="@+id/btnAbrir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Abrir nueva Activity"
-        android:layout_marginVertical="20dp"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/tvContador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Valor contador: 0"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="20dp"/>
+        <EditText
+            android:id="@+id/etNombres"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#FFFFFF"
+            android:hint="Nombres"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#DCEBFF" />
 
-    <Button
-        android:id="@+id/btnIncrementar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Incrementar"
-        android:layout_marginTop="20dp"/>
-</LinearLayout>
+        <EditText
+            android:id="@+id/etApellidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            android:hint="Apellidos"
+            android:inputType="textPersonName"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#DCEBFF" />
+
+        <EditText
+            android:id="@+id/etCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            android:hint="Correo electronico"
+            android:inputType="textEmailAddress"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#DCEBFF" />
+
+        <EditText
+            android:id="@+id/etTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            android:hint="Telefono celular"
+            android:inputType="phone"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#DCEBFF" />
+
+        <EditText
+            android:id="@+id/etEdad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFFFFF"
+            android:hint="Edad"
+            android:inputType="number"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#DCEBFF" />
+
+        <Button
+            android:id="@+id/btnValidar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Validar informacion"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvResumen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnIrSecond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Ir a SecondActivity" />
+
+        <Button
+            android:id="@+id/btnIrThird"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ir a ThirdActivity" />
+    </LinearLayout>
+</ScrollView>
